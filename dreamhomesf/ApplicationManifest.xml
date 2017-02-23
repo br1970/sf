@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest ApplicationTypeName="dreamhomesf" ApplicationTypeVersion="0.1"
+    xmlns="http://schemas.microsoft.com/2011/01/fabric"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Parameters>
+      <Parameter Name="dhclient_InstanceCount" DefaultValue="2" />
+      <Parameter Name="dhnotification_InstanceCount" DefaultValue="2" />
+    </Parameters>
+    <ServiceManifestImport>
+        <ServiceManifestRef ServiceManifestName="dhClient" ServiceManifestVersion="latest" />
+    </ServiceManifestImport>
+    <ServiceManifestImport>
+        <ServiceManifestRef ServiceManifestName="dhNotification" ServiceManifestVersion="latest" />
+    </ServiceManifestImport>
+    <DefaultServices>
+      <Service Name="dhClient">
+          <StatelessService ServiceTypeName="dhclientType" InstanceCount="[dhclient_InstanceCount]">
+              <SingletonPartition />
+          </StatelessService>
+      </Service>
+      <Service Name="dhNotification">
+          <StatelessService ServiceTypeName="dhnotificationType" InstanceCount="[dhnotification_InstanceCount]">
+              <SingletonPartition />
+          </StatelessService>
+      </Service>
+    </DefaultServices>
+</ApplicationManifest>

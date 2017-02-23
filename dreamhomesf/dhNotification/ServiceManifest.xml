@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest Name="dhNotification" Version="latest"
+  xmlns="http://schemas.microsoft.com/2011/01/fabric"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ServiceTypes>
+    <StatelessServiceType ServiceTypeName="dhnotificationType" UseImplicitHost="true"></StatelessServiceType>
+  </ServiceTypes>
+  <CodePackage Name="code" Version="latest">
+    <EntryPoint>
+      <ContainerHost>
+        <ImageName>balduino/dhnotificationsf:latest</ImageName>
+        <Commands></Commands>
+      </ContainerHost>
+    </EntryPoint>
+    <EnvironmentVariables></EnvironmentVariables>
+    <Resources>
+      <Endpoints>
+        <Endpoint Name="WebEndpoint" Protocol="http" Port="8082" />
+      </Endpoints>
+    </Resources>
+  </CodePackage>
+</ServiceManifest>
