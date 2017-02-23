@@ -65,3 +65,4 @@ echo "Step 5:  Create Application"
 echo "================================================="
 azure servicefabric application create fabric:/dh dreamhomesf $BUILD_BUILDNUMBER
 [ $? -eq 0 ] || { echo "Failed to create application, Exiting..."; exit 1; }
+# test
